@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
-    @wishes = Wish.where("(for_id=?) or (from_id=?)",current_user.id,current_user.id).where(status:"wait")
+    @wishes = Wish.where("(for_id=?) or (from_id=?)",@user.id,@user.id).where(status:"wait")
   end
 
   def new
@@ -29,8 +28,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      @user = login(params[:email], params[:password])
-      redirect_to "/users/#{current_user.id}"
+      user = login(params[:email], params[:password])
+      redirect_to "/users/#{@user.id}"
     else
       render :new
 
