@@ -1,0 +1,7 @@
+= render "layouts/header"
+ばっくやーど
+
+= link_to '本の登録', "/users/#{@user.id}/books/new"
+= link_to '本棚を見る', "/users/#{@user.id}/bookshelves"
+= link_to '友達一覧', "#"
+= render partial:"wish",collection:@wishes

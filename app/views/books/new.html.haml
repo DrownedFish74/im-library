@@ -1,0 +1,35 @@
+= render "layouts/header"
+.booksNew.wrapper
+  .booksNew__title
+    本の登録
+  .booksNew__exprain
+    書籍に記載されている13桁のISBNコードを入力すると
+    %br
+    詳細を検索できます。
+  = form_with model:[@user,@book],local: true,html:{class:"booksNew__form"} do |f|
+    ISBN13：
+    =f.text_field :ISBN, class:"booksNew__form--ISBN",placeholder:"ISBN13"
+    %button{class:"getBookInfo"}書籍情報取得
+    .booksNew__form--thumbnail
+      %p#thumbnail
+    %br/
+    書籍名：
+    =f.text_field :title, class:"booksNew__form--title",placeholder:"書籍名"
+    %br/
+    出版社：
+    =f.text_field :publisher, class:"booksNew__form--publisher",placeholder:"出版社"
+    %br/
+    著者：
+    =f.text_field :author, class:"booksNew__form--author",placeholder:"著者"
+    %br/
+    サムネイルURL：
+    =f.text_field :cover, class:"booksNew__form--cover",placeholder:"画像"
+    %br/
+    本の詳細：
+    =f.text_field :description, class:"booksNew__form--description",placeholder:"本の詳細"
+    %br/
+    入れる本棚（登録後に移動できます）
+    =f.select :status, [["開架（貸出可能）", "open"],["書庫（貸出不可）","close"]]
+    %br
+    =f.submit "登録", class:"booksNew__form--submit"
+

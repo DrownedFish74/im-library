@@ -1,0 +1,8 @@
+.bookshelvesWishPopup
+  = form_with(url:"/users/#{current_user.id}/wishes" ,local: true) do |f|
+    .bookshelvesWishPopup__add
+    .bookshelvesWishPopup__form
+      =f.text_area :"wish[comment]",placeholder: "メッセージを入力してください",rows: "5",class:"bookshelvesWishPopup__form--textarea"
+      %input{type:"hidden",name:"wish[status]",value:"wait"}
+      = f.submit
+  %button{class:"bookshelvesPopup__close"}やめる

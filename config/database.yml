@@ -1,25 +1,33 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
+# MySQL. Versions 5.0 and up are supported.
 #
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+# Install the MySQL driver
+#   gem install mysql2
 #
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: im-library_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  # database: db/test.sqlite3
+  database: im-library_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  # database: <%= ENV['postgres://xxwqpztqbfpvoa:eee6c87d2ffefda02713d0c4e1a1d664a8860b5f31a62e47ca3df749d8c823c4@ec2-34-204-22-76.compute-1.amazonaws.com:5432/dd59q8g6ub5hu0ω'] %>

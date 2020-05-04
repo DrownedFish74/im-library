@@ -1,0 +1,9 @@
+%ul.all-bookshelves__menu
+  %li.all-bookshelves__menu__item.active
+    開架
+.bookshelves
+  .bookshelves__shelf.open.show
+    .bookshelves__shelf__layer.open
+      =render partial: "book-display",collection:@openBooks, as:"book"
+    %button.book__borrow{"data-user-id":"#{current_user.id}","data-bookshelf-id":"#{@user.id}"}
+      貸出申請を送る

@@ -1,0 +1,10 @@
+- if logged_in?
+  .userNav.grid6
+    = current_user.nickname
+    %ul.userNav__menu
+      %li
+        = link_to "本の登録","/users/#{current_user.id}/books/new"
+        = link_to "本棚をみる","/users/#{current_user.id}/bookshelves"
+        = link_to "誰かの本棚を探す","/users/#{current_user.id}/friends"
+        = link_to "バックヤードに戻る","/users/#{current_user.id}"
+        = link_to "ログアウト","/user_sessions/#{current_user.id}",method: :delete

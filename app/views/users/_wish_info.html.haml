@@ -1,0 +1,8 @@
+.usersShow__wishPopup
+  = form_with (model:[@user,@wish],local:true,method: :patch) do |f|
+    .wishesPopup__addFrom
+    .wishesPopup__formBtn
+      = f.submit{class:"wishesPopup__formBtn--ok"}
+        はい
+      %button.wishesPopup__formBtn--ng
+        いいえ

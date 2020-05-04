@@ -1,0 +1,23 @@
+%ul.all-bookshelves__menu
+  %li.all-bookshelves__menu__item.active
+    開架
+  %li.all-bookshelves__menu__item
+    書庫
+  %li.all-bookshelves__menu__item
+    借りている本
+.bookshelves
+  .bookshelves__shelf.open.show
+    .bookshelves__shelf__layer.open
+      =render partial: "book-display",collection:@openBooks, as:"book"
+    %button.book__move{"data-user-id":"#{@user.id}","data-book-status":"close"}
+      書庫へ移動
+  .bookshelves__shelf.close
+    .bookshelves__shelf__layer.close
+      =render partial: "book-display",collection:@closeBooks, as:"book"
+    %button.book__move{"data-user-id":"#{@user.id}","data-book-status":"open"}
+      開架へ移動
+  .bookshelves__shelf.borrowing
+    .bookshelves__shelf__layer.borrowing
+      =render partial: "book-display",collection:@borrowingBooks, as:"book"
+    %button.book__return{"data-user-id":"#{current_user.id}"}
+      本を返す

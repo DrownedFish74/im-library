@@ -1,0 +1,31 @@
+- case book.status
+- when "open"
+  .book.open
+    .book__spine.open
+      .book__spine__title
+        = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
+          =book.title
+      %input.move-check{type:"checkbox",value:"#{book.id}"}
+- when "lending"
+  - if book.user_id == current_user.id
+    .book.lending
+      .book__spine.lending
+        .book__spine__title
+          = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
+            =book.title
+  - else
+    .book.borrowing
+      .book__spine.borrowing
+        .book__spine__title
+          = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
+            =book.title
+        %input.return-check{type:"checkbox",name:"return-checkbox",value:"#{book.id}","data-owner-id":"#{book.user_id}"}
+- when "close"
+  .book.close
+    .book__spine.close
+      .book__spine__title
+        = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
+          =book.title
+      %input.move-check{type:"checkbox",value:"#{book.id}"}
+
+

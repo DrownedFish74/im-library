@@ -1,0 +1,37 @@
+.wishesEdit.wrapper
+  - case @wish.purpose
+  - when "friend"
+    友達申請
+    = @wish.comment
+    .wishesEdit__comment
+      = "#{@wish.from_name}さんと友達になりますか？"
+    = form_with(url:"/users/#{current_user.id}/wishes/#{@wish.id}",local:true) do |f|
+      = f.submit(class:"wishesEdit__formBtn--btn",name:"wish[status]",value:"ok")
+      はい
+      = f.submit(class:"wishesEdit__formBtn--btn",name:"wish[status]",value:"ng")
+      いいえ
+
+  - when "borrow"
+    貸出申請
+    = render partial: "wish-books", collection: @books,as: "book"
+    = @wish.comment
+    = form_with(model:[@user,@wish],local:true,method: :patch) do |f|
+      %input{type:"date",name:"wish[deadline]",value:@wish.deadline}
+      %p.wishesEdit__comment
+        この内容で貸出を許可しますか？
+      = f.submit(class:"wishesEdit__formBtn--btn",name:"wish[status]",value:"ok")
+      はい
+      = f.submit(class:"wishesEdit__formBtn--btn",name:"wish[status]",value:"ng")
+      いいえ
+
+  - when "return"
+    かえってきたほん
+    = render partial: "wish-books", collection: @books,as: "book"
+    = @wish.comment
+    = form_with(model:[@user,@wish],local:true,method: :patch) do |f|
+      %input{type:"hidden",name:"wish[status]",value:"ok"}
+      どちらの本棚にしまいますか？
+      = f.select :"bookshelf_status",[["開架（貸出可能）","open"],["書庫（貸出不可）","close"]]
+      = f.submit(class:"wishesEdit__formBtn--btn",value:"本をしまう")
+      書庫
+

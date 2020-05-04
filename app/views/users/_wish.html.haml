@@ -1,0 +1,27 @@
+.usersShow__wishes
+  -case wish.purpose
+  -when "friend"
+    %span.usersShow__wishes__wish--title
+      友達申請
+    .wishInfo__friend
+      - if wish.for_id == current_user.id
+        .wishInfo__friend
+          = link_to "確認","/users/#{current_user.id}/wishes/#{wish.id}/edit"
+      - else
+        申請中
+  -when "borrow"
+    %span.usersShow__wishes__wish--title
+      貸出申請
+    .wishInfo__borrow
+      - if wish.for_id == current_user.id
+        = link_to "確認","/users/#{current_user.id}/wishes/#{wish.id}/edit"
+      - else
+        申請中
+  -when "return"
+    %span.usersShow__wishes__wish--title
+      返却申請
+    .wishInfo__return
+      - if wish.for_id == current_user.id
+        = link_to "確認","/users/#{current_user.id}/wishes/#{wish.id}/edit"
+      - else
+        申請中

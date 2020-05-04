@@ -1,0 +1,44 @@
+= render "layouts/header"
+.booksShow.wrapper
+  .booksShow__book--cover
+    = image_url "#{@book.cover}"
+  .booksShow__book--title
+    = @book.title
+  .booksShow__book--author
+    = @book.author
+  .booksShow__book--publisher
+    = @book.publisher
+  .booksShow__book--description
+    = @book.description
+  .booksShow__book--status
+    現在の本棚：
+    - case @book.status
+    - when "open"
+      = "開架"
+    - when "close"
+      = "書庫"
+    - when "lending"
+      -if @book.user_id == current_user.id
+        = "貸出中"
+      - else
+        = "借りている本"
+
+  .booksShow__impressions
+    感想一覧
+    - if @impressions
+      - if @book.user_id == current_user.id
+        - @impressions.each do |impression|
+          .booksShow__impressions__impression
+            = impression.user.nickname
+            = impression.comment
+      - else
+        - @impressions.each do |impression|
+          - if impression.status == "open"
+            .booksShow__impressions__impression
+              = impression.user.nickname
+              = impression.comment
+    - if logged_in?
+      =form_with(model: [@user,@book,@impression]) do |f|
+        =f.text_area :comment,placeholder: "感想を書く",rows: "2",class:"impression-textarea"
+        =f.submit class:"impression-submit"
+

@@ -1,0 +1,8 @@
+.friendsPopup
+  = form_with(url:"/users/#{current_user.id}/wishes" ,local: true) do |f|
+    .friendsPopup__form
+      =f.text_area :comment,placeholder: "メッセージを入力してください",rows: "10",class:"friendsPopup__form--textarea"
+      %input{type:"hidden",name:"wish[deadline]",value:""}
+      %input{type:"hidden",name:"wish[book_ids][]",value:""} 
+      = f.submit
+  %button{class:"friendsPopup__close"}やめる
