@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     
     if @user.save
       @user = login(params[:email], params[:password])
-      redirect_to controller: "users",action: "show",id: @user.id
+      redirect_to "/users/#{current_user.id}"
     else
       render :new
 
