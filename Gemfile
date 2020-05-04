@@ -60,3 +60,4 @@ gem 'pry-rails'
 gem 'sprockets', '3.7.2'
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'rails_12factor', group: :production
