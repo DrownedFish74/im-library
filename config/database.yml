@@ -30,4 +30,6 @@ test:
 
 production:
   <<: *default
-  # database: <%= ENV['postgres://xxwqpztqbfpvoa:eee6c87d2ffefda02713d0c4e1a1d664a8860b5f31a62e47ca3df749d8c823c4@ec2-34-204-22-76.compute-1.amazonaws.com:5432/dd59q8g6ub5hu0ω'] %>
+  database: heroku_19e6dd528dc3a31
+  username: b2f0a73974b38d
+  password: <%= ENV['DATABASE_PASSWORD'] %>
