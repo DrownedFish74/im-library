@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    logout
     @user = User.new
   end
   
@@ -25,14 +26,13 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
     
     if @user.save
-      user = login(params[:email], params[:password])
-      redirect_to "/users/#{@user.id}"
+      user = login(params[:user][:email], params[:user][:password])
+      redirect_to controller:"users",action:"show",id:user.id
     else
       render :new
-
     end
     
   end
