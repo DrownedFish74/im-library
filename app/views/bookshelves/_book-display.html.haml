@@ -13,6 +13,8 @@
         .book__spine__title
           = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
             =book.title
+        .book__spine__status
+          貸出中
   - else
     .book.borrowing
       .book__spine.borrowing

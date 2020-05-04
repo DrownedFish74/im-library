@@ -1,5 +1,7 @@
 = render "layouts/header"
-%input#user-search-field.chat-group-form__input{:placeholder => "ユーザー名かIDで検索", :type => "text"}/
-#user-search-result
+.wrapper
+  %h3 友達検索
+  %input#user-search-field{:placeholder => "ユーザー名かIDで検索", :type => "text"}/
+  #user-search-result
 
-= render "friends/form"
+  = render "friends/form"

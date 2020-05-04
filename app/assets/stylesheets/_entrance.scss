@@ -1,21 +1,53 @@
 .entrance{
   &__title{
-    font-family:"kinari";
-    font-size:50px;
+    font-size: 50px;
     height: 100px;
     line-height: 100px;
     padding: 0 30px;
+    background-color: $header-color;
+    color: $base-font;
   }
   &__menu{
     display: flex;
+    height: calc(100vh - 100px);
+    position: relative;
     &__new{
       width: 50%;
-      height: calc(100vh-100px);
-      .a{
+      display: flex;
+      justify-content: center;
+      a{
         display: inline-block;
-        height: 30px;
-        width: 50%px;
+        position: absolute;
+        top: 30%;
+        text-decoration: none;
+        height: 60px;
+        width: 25%;
+        line-height: 60px;
+        text-align: center;
+        font-size:30px;
         border-radius: 10px;
+        background-color: #A63A50;
+        color: $base-font;
+      }
+    }
+    &__login{
+      position: relative;
+      width: 30%;
+      &__form{
+        position: absolute;
+        top: 25%;
+        &--field{
+          display: flex;
+          justify-content: space-between;
+          label{
+            display: inline-block;
+            width: 30%;
+          }
+        }
+        &--submit{
+          float: right;
+        }
+        
       }
     }
   }

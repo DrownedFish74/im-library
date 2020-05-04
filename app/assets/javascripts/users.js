@@ -2,7 +2,7 @@ $(function() {
   function addUser(user) {
     let html = `
     <div class="result">
-    <a href="/users/${user.id}/bookshelves" class="result__name">${user.name}</p></a>
+    <a href="/users/${user.id}/bookshelves" class="result__name">${user.name}の本棚</a>
     <div class="user-search-add" data-user-name = "${user.name}" data-user-id="${user.id}"><a href="#">友達申請を送る</a></div>
     </div>
     `;
@@ -11,8 +11,8 @@ $(function() {
   
   function addNoUser() {
     let html = `
-    <div class="chat-group-user clearfix">
-    <p class="chat-group-user__name">ユーザーが見つかりません</p>
+    <div class="result">
+    <p class="user-search-add">ユーザーが見つかりません</p>
     </div>
     `;
     $("#user-search-result").append(html);

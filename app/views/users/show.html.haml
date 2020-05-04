@@ -1,7 +1,6 @@
 = render "layouts/header"
-ばっくやーど
+.usersShow.wrapper
+  %h3 承認待ちの申請
+  %br/
 
-= link_to '本の登録', "/users/#{@user.id}/books/new"
-= link_to '本棚を見る', "/users/#{@user.id}/bookshelves"
-= link_to '友達一覧', "#"
-= render partial:"wish",collection:@wishes
+  = render partial:"wish",collection:@wishes

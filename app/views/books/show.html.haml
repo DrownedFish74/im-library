@@ -1,9 +1,10 @@
 = render "layouts/header"
 .booksShow.wrapper
   .booksShow__book--cover
-    = image_url "#{@book.cover}"
+    %img{src:"#{@book.cover}"}
   .booksShow__book--title
-    = @book.title
+    %h3
+      = @book.title
   .booksShow__book--author
     = @book.author
   .booksShow__book--publisher
@@ -37,8 +38,8 @@
             .booksShow__impressions__impression
               = impression.user.nickname
               = impression.comment
-    - if logged_in?
+    - if current_user
       =form_with(model: [@user,@book,@impression]) do |f|
-        =f.text_area :comment,placeholder: "感想を書く",rows: "2",class:"impression-textarea"
-        =f.submit class:"impression-submit"
+        =f.text_area :comment,placeholder: "感想を入力",rows: "2",class:"impression-textarea"
+        =f.submit class:"impression-submit",value:"感想を書く"
 

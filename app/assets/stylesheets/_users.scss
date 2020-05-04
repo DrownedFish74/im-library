@@ -1,0 +1,35 @@
+.usersShow__wishes{
+  width: 30%;
+  height: 50px;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #F9DEC9;
+  position: relative;
+  a{
+    text-decoration: none;
+    position: absolute;
+    right: 3px;
+    display: inline-block;
+    border: 1px solid;
+    border-color: #E9AFA3;
+    color: #E9AFA3;
+    font-size: 13px;
+    height: 22px;
+    line-height: 20px;
+    width: 50px;
+    padding: 0 10px;
+  }
+  .wishInfo__friend{
+    padding-right: 3px;
+    text-align: right;
+  }
+  .wishInfo__borrow{
+    padding-right: 3px;
+    text-align: right;
+  }
+  .wishInfo__return{
+    padding-right: 3px;
+    text-align: right;
+  }
+}

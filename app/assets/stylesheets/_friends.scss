@@ -1,0 +1,25 @@
+.result{
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  height: 40px;
+    background-color: #F4DBD8;
+  color: #353A47;
+  margin: 10px 0;
+  a{
+    display: inline-block;
+    text-decoration: none;
+    width: auto;
+    font-size: 15px;
+    color: #353A47;
+    line-height: 40px;
+  }
+  p{
+    display: inline-block;
+    text-decoration: none;
+    width: auto;
+    font-size: 15px;
+    color: #353A47;
+    line-height: 40px;
+  }
+}

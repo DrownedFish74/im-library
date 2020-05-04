@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'kinari';
-  src: font-url('kinari-gothic-mini.otf') format('truetype');
+  font-family: 'mugen';
+  src: font-url('rounded-mgenplus-1c-medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @mixin popup {
   display:none;
-  background-color: #92B4A7;
-  height: 30vh;
+  background-color: #CCC9E7;
+  height: 40vh;
   width: 50%;
   position: fixed;
   top: 20%;

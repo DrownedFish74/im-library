@@ -1,10 +1,7 @@
 *{
   box-sizing: border-box;
-  border-radius: 5px;
   .all-bookshelves{
-    width: 100%;
-    height: 100%;
-    background-color: #8f4426;
+    color: #353A47;
     &__menu{
       margin: 0 auto;
       display: flex;
@@ -13,6 +10,8 @@
         height: 50px;
         width: 340px;
         background-color: #BB9457;
+        text-align: center;
+        
       }
       .active{
         background-color: #F6AA1C;
@@ -31,6 +30,7 @@
           display: block;
         }
         &__layer{
+          border-radius: 5px;
           border: 10px solid;
           border-color: inherit;
           width: 100%;
@@ -50,6 +50,7 @@
           }
         }
         .book{
+          border-radius: 5px;
           height: 180px;
           width: 50px;
           display: flexbox;
@@ -68,6 +69,7 @@
           }
           
           &__spine{
+            border-radius: 5px;
             width: 40px;
             height: 150px;
             text-align: center;
@@ -83,7 +85,9 @@
             &.lending{
               background-color: yellowgreen;
             }
-            
+            &__status{
+              font-size: 10px;
+            }
             &__title{
               width: 100%;
               height: 100%;
@@ -95,6 +99,10 @@
               text-overflow: ellipsis;
               display: inline-block;
               text-align: left;
+              a{
+                text-decoration: none;
+                color: #353A47;
+              }
             }
           }
         }
@@ -102,22 +110,18 @@
     }
   }
   .bookshelvesPopup{
-    display:none;
-    background-color: #92B4A7;
-    height: 50vh;
-    width: 50%;
-    position: fixed;
-    top: 50%;
-    left :30%;
+    @include popup;
     &.show{
       display: block;
-    }
-    &--wish.show{
-      display:block;
     }
   }
   .bookshelvesWishPopup{
     @include popup;
+    display: flexbox;
+    &__form--textarea{
+      display: inline-block;
+      width: 90%;
+    }
     &.show{
       display: block;
     }

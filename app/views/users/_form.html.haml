@@ -8,19 +8,19 @@
         - user.errors.full_messages.each do |message|
           %li= message
   .field
-    = form.label :email
-    = form.text_field :email
+    = form.label :ニックネーム
+    = form.text_field :nickname
   .field
-    = form.label :password
-    = form.password_field :password
-  .field
-    = form.label :password_confirmation
-    = form.password_field :password_confirmation
-  .field
-    = form.label :name
+    = form.label :ユーザーID
     = form.text_field :name
   .field
-    = form.label :nickname
-    = form.text_field :nickname
+    = form.label :メールアドレス
+    = form.text_field :email
+  .field
+    = form.label :パスワード
+    = form.password_field :password
+  .field
+    = form.label :パスワード
+    = form.password_field :password_confirmation
   .actions
     = form.submit

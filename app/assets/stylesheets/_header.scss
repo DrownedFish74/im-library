@@ -1,0 +1,32 @@
+  .common_header{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    background-color: $header-color;
+    color: $base-font;
+    .userNav__name{
+      line-height: 100px;
+    }
+    .userNav__menu {
+      display: flex;
+      height: 80px;
+      margin: 20px;
+      li {
+        a {
+          text-decoration: none;
+          color: #3A405A;
+          border-radius: 5px;
+          height: 50px;
+          display: block;
+          background-color: #f0f0f0;
+          padding: 10px 20px;
+          text-align: center;
+          line-height: 30px;
+          margin: 10px;
+          border-bottom: 1px solid #d8d8d8;
+        }
+      }
+    }
+  }
