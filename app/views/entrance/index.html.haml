@@ -1,20 +1,22 @@
 .entrance.wrapper
   .entrance__title
-    わたしとしょかん
+    %h1 わたしとしょかん
 
-  = link_to new_user_path do
-    新規登録はこちら
+  .entrance__menu
+    .entrance__menu__new
+      = link_to new_user_path do
+        %h3 新規登録はこちら
   
-  .entrance__login
-    ろぐいん
-    = form_with(local: true,url:"/user_sessions",method: :post) do |form|
-      .field
-        = form.label :email
-        = form.text_field :email
-      .field
-        = form.label :password
-        = form.password_field :password
-      .actions
-        = form.submit
+    .entrance__menu__login
+      %h3 ろぐいん
+      = form_with(local: true,url:"/user_sessions",method: :post) do |form|
+        .entrance__menu__login--field
+          = form.label :email
+          = form.text_field :email
+        .entrance__menu__login--field
+          = form.label :password
+          = form.password_field :password
+        .entrance__menu__login--submit
+          = form.submit
 
 

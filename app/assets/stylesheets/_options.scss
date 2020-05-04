@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'kinari';
+  src: font-url('kinari-gothic-mini.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin popup {
+  display:none;
+  background-color: #92B4A7;
+  height: 30vh;
+  width: 50%;
+  position: fixed;
+  top: 20%;
+  left :30%;
+}
+
+$header-color: #5C4742;
+$back-color:#8D5B4C;
+$base-font:#F7EBE8;

@@ -24,12 +24,19 @@ class WishesController < ApplicationController
   def update
     wish = Wish.find(params[:id])
     case wish.purpose
+    when "friend"
+      if wish.update(wish_update_params)
+        wish.reflection_friend if wish.status == "ok"
+        redirect_to "/users/#{params[:user_id]}",notice:"#{User.find(wish.from_id).nickname}さんと友達になりました。"
+      else
+        redirect_to "/users/#{params[:user.id]}"
+      end
     when "borrow"
       if wish.update(wish_update_params)
         wish.reflection_borrow_book
-        redirect_to "/users/#{params[:user_id]}",notice:"#{User.find[from_id].nickname}さんに本を貸し出しました。"
+        redirect_to "/users/#{params[:user_id]}",notice:"#{User.find(wish.from_id).nickname}さんに本を貸し出しました。"
       else
-        redirect_to "/users/#{params[:user_id]}", notice:"エラー"
+        redirect_to "/users/#{params[:user_id]}", notice:"#{User.find(wish.from_id).nickname}さんに本を貸し出しませんでした。"
       end
     when "return"
       if wish.update(wish_update_params)
@@ -55,5 +62,9 @@ class WishesController < ApplicationController
   
   def book_status
     params.permit(:bookshelf_status)
+  end
+
+  def wish_reply
+    params.require(:wish).permit(:status)
   end
 end

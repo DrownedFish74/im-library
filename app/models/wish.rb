@@ -24,6 +24,10 @@ class Wish < ApplicationRecord
     end
   end
 
+  def reflection_friend
+    @friend = Friend.create(user_id:self.for_id,friend_id:self.from_id)
+  end
+
   def from_name
     from_user = User.find(self.from_id)
     from_user.name

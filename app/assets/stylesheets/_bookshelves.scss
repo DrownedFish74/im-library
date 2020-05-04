@@ -117,13 +117,7 @@
     }
   }
   .bookshelvesWishPopup{
-    display:none;
-    background-color: #92B4A7;
-    height: 50vh;
-    width: 50%;
-    position: fixed;
-    top: 50%;
-    left :30%;
+    @include popup;
     &.show{
       display: block;
     }

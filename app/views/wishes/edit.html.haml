@@ -5,10 +5,13 @@
     = @wish.comment
     .wishesEdit__comment
       = "#{@wish.from_name}さんと友達になりますか？"
-    = form_with(url:"/users/#{current_user.id}/wishes/#{@wish.id}",local:true) do |f|
-      = f.submit(class:"wishesEdit__formBtn--btn",name:"wish[status]",value:"ok")
+    = form_with(model:[@user,@wish],local:true,method: :patch) do |f|
+      %input{type:"hidden",name:"wish[status]",value:"ok"}
+      = f.submit(class:"wishesEdit__formBtn--btn",value:"はい")
       はい
-      = f.submit(class:"wishesEdit__formBtn--btn",name:"wish[status]",value:"ng")
+    = form_with(model:[@user,@wish],local:true,method: :patch) do |f|
+      %input{type:"hidden",name:"wish[status]",value:"ng"}
+      = f.submit(class:"wishesEdit__formBtn--btn",value:"いいえ")
       いいえ
 
   - when "borrow"
