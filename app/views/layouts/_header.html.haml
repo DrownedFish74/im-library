@@ -2,7 +2,7 @@
   .common_header
     .userNav__name
       %h3
-        = current_user.nickname
+        = link_to "#{current_user.nickname}","/users/#{current_user.id}"
     %ul.userNav__menu
       %li
         = link_to "本の登録","/users/#{current_user.id}/books/new"
@@ -10,7 +10,5 @@
         = link_to "本棚をみる","/users/#{current_user.id}/bookshelves"
       %li
         = link_to "誰かの本棚を探す","/users/#{current_user.id}/friends"
-      %li
-        = link_to "バックヤードに戻る","/users/#{current_user.id}"
       %li
         = link_to "ログアウト","/user_sessions/#{current_user.id}",method: :delete
