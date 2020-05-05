@@ -7,7 +7,7 @@ $(function(){
     </div>`
     $('.booksShow__impressions__impression').append(html);
   }
-  $('.impression-submit').on('submit', function(e){
+  $('#impression_new').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')

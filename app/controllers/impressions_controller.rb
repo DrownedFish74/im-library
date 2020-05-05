@@ -2,7 +2,6 @@ class ImpressionsController < ApplicationController
   def create
     @impression = Impression.create(impression_params)
     respond_to do |format|
-      format.html { redirect_to "/users/#{params[:user_id]}/books/#{params[:book_id]}"}
       format.json
     end
   end

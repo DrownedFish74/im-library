@@ -26,14 +26,15 @@
 
   .booksShow__impressions
     感想一覧
-    - if @impressions
-      - @impressions.each do |impression|
-        .booksShow__impressions__impression
+    .booksShow__impressions__impression
+      - if @impressions
+        - @impressions.each do |impression|
           .impression
-            = impression.user.nickname
+            = link_to "#{impression.user.nickname}","/users/#{impression.user_id}/bookshelves"
+            ：
             = impression.comment
     - if current_user
-      =form_with(model: [@user,@book,@impression]) do |f|
+      =form_with(model: [@user,@book,@impression],id: "impression_new",local:true) do |f|
         =f.text_area :comment,placeholder: "感想を入力",rows: "2",class:"impression-textarea"
         =f.submit class:"impression-submit",value:"感想を書く"
 

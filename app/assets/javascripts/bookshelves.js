@@ -153,17 +153,11 @@ $(function() {
       .done(function(books){
         books.forEach(function(book){
           addWishBooks(book)
-          console.log(book)
         })
         addReturnInfo(for_id)
         $(".bookshelvesWishPopup").addClass("show")
       })
     })
-    // else {
-    //   if ($(".return-check").prop("checked") == false {
-    
-    //   }
-    // }
   }
   )
   
