@@ -9,7 +9,7 @@
   = form_with model:[@user,@book],local: true,html:{class:"booksNew__form"} do |f|
     ISBN13：
     =f.text_field :ISBN, class:"booksNew__form--ISBN",placeholder:"ISBN13"
-    %button{class:"getBookInfo"}書籍情報取得
+    %button{class:"getBookInfo formbtn"}書籍情報取得
     .booksNew__form--thumbnail
       %p#thumbnail
     %br/
@@ -31,5 +31,5 @@
     入れる本棚（登録後に移動できます）
     =f.select :status, [["開架（貸出可能）", "open"],["書庫（貸出不可）","close"]]
     %br
-    =f.submit "登録", class:"booksNew__form--submit"
+    =f.submit "登録", class:"booksNew__form--submit formbtn"
 
