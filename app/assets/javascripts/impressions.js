@@ -1,11 +1,11 @@
 $(function(){
   function buildHTML(impression){
-    var html = `<p>
+    let html = `<div class="impression">
     <a href=/users/${impression.user_id}>${impression.user_name}</a>
     ：
-    ${impression.text}
-    </p>`
-    return html;
+    ${impression.comment}
+    </div>`
+    $('.booksShow__impressions__impression').append(html);
   }
   $('.impression-submit').on('submit', function(e){
     e.preventDefault();
@@ -20,8 +20,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
-      $('.bookShow__impressions__impression').append(html);
+      buildHTML(data);
       $('.impression-textarea').val('');
       $('.impression-submit').prop('disabled', false);
     })

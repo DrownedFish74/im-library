@@ -1,8 +1,4 @@
 class ImpressionsController < ApplicationController
-  # def create
-  #   impression = Impression.create(impression_params)
-  #   redirect_to "/users/#{params[:user_id]}/books/#{params[:book_id]}"
-  # end
   def create
     @impression = Impression.create(impression_params)
     respond_to do |format|
