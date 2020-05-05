@@ -1,7 +1,7 @@
 .wishesEdit.wrapper
   - case @wish.purpose
   - when "friend"
-    友達申請
+    %h3 友達申請
     = @wish.comment
     .wishesEdit__comment
       = "#{@wish.from_name}さんと友達になりますか？"
@@ -13,7 +13,7 @@
       = f.submit(class:"wishesEdit__formBtn--btn formbtn",value:"いいえ")
 
   - when "borrow"
-    貸出申請
+    %h3 貸出申請
     = render partial: "wish-books", collection: @books,as: "book"
     = @wish.comment
     = form_with(model:[@user,@wish],local:true,method: :patch) do |f|
@@ -24,7 +24,7 @@
       = f.submit(class:"wishesEdit__formBtn--btn formbtn",name:"wish[status]",value:"ng")
 
   - when "return"
-    かえってきたほん
+    %h3 返ってきた本
     = render partial: "wish-books", collection: @books,as: "book"
     = @wish.comment
     = form_with(model:[@user,@wish],local:true,method: :patch) do |f|

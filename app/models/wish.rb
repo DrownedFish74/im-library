@@ -20,7 +20,7 @@ class Wish < ApplicationRecord
   def reflection_return_close
     self.book_ids.each do |book_id|
       book = Book.find(book_id)
-      book.update(borrower_id:"",status:"open",return_deadline:"")
+      book.update(borrower_id:"",status:"close",return_deadline:"")
     end
   end
 

@@ -2,8 +2,8 @@ $(function() {
   function addUser(user) {
     let html = `
     <div class="result">
-    <a href="/users/${user.id}/bookshelves" class="result__name">${user.name}の本棚</a>
-    <div class="user-search-add" data-user-name = "${user.name}" data-user-id="${user.id}"><a href="#">友達申請を送る</a></div>
+    <a href="/users/${user.id}/bookshelves" class="result__name">${user.nickname}の本棚</a>
+    <div class="user-search-add" data-user-name = "${user.nickname}" data-user-id="${user.id}"><a href="#">友達申請を送る</a></div>
     </div>
     `;
     $("#user-search-result").append(html);

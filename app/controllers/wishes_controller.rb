@@ -61,7 +61,7 @@ class WishesController < ApplicationController
   end
   
   def book_status
-    params.permit(:bookshelf_status)
+    params.require(:wish).permit(:bookshelf_status)
   end
 
   def wish_reply

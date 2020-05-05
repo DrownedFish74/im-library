@@ -27,7 +27,7 @@
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.from_id).nickname}さんから本が返ってきました"
       .wishInfo__return
-        = link_to "本棚にしまう","/users/#{current_user.id}/wishes/#{wish.id}/edit"
+        = link_to "確認","/users/#{current_user.id}/wishes/#{wish.id}/edit"
     - else
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.for_id).nickname}さんに本を返しました"

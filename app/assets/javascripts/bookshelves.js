@@ -20,7 +20,6 @@ $(function() {
   
   // 申請のときの本追加
   function addWishBooks(book) {
-    console.log("dousa")
     let html = `
     <div class="bookshelvesWishPopup__form__book">
     <p class="bookshelvesWishPopup__form__book--name">${book.title}</p>
@@ -39,6 +38,7 @@ $(function() {
     <div class="bookshelvesWishPopup__form--day">
     返却予定日
     <input type="date" name="wish[deadline]"></input>
+    </div>
     `;
     $(".bookshelvesWishPopup__add").append(html);
   }
