@@ -6,11 +6,11 @@ class WishesController < ApplicationController
     @wish = Wish.create(wish_create_params)
     case @wish.purpose
     when "friend"
-      redirect_to user_friends_path
+      redirect_to friends_path
     when "borrow"
       redirect_to "/users/#{@wish.for_id}/bookshelves"
     when "return"
-      redirect_to user_bookshelves_path
+      redirect_to user_bookshelves_path(current_user)
     end
   end
   
@@ -27,25 +27,25 @@ class WishesController < ApplicationController
     when "friend"
       if wish.update(wish_update_params)
         wish.reflection_friend if wish.status == "ok"
-        redirect_to "/users/#{params[:user_id]}",notice:"#{User.find(wish.from_id).nickname}さんと友達になりました。"
+        redirect_to user_path(current_user),notice:"#{User.find(wish.from_id).nickname}さんと友達になりました。"
       else
-        redirect_to "/users/#{params[:user.id]}"
+        redirect_to user_path(current_user)
       end
     when "borrow"
       if wish.update(wish_update_params)
         wish.reflection_borrow_book
-        redirect_to "/users/#{params[:user_id]}",notice:"#{User.find(wish.from_id).nickname}さんに本を貸し出しました。"
+        redirect_to user_path(current_user),notice:"#{User.find(wish.from_id).nickname}さんに本を貸し出しました。"
       else
-        redirect_to "/users/#{params[:user_id]}", notice:"#{User.find(wish.from_id).nickname}さんに本を貸し出しませんでした。"
+        redirect_to user_path(current_user), notice:"#{User.find(wish.from_id).nickname}さんに本を貸し出しませんでした。"
       end
     when "return"
       if wish.update(wish_update_params)
         if book_status == "open"
           wish.reflection_return_open
-          redirect_to "/users/#{params[:user_id]}",notice:"#{User.find(wish.from_id).nickname}さんから返ってきた本を開架にしまいました。"
+          redirect_to user_path(current_user),notice:"#{User.find(wish.from_id).nickname}さんから返ってきた本を開架にしまいました。"
         else
           wish.reflection_return_close
-          redirect_to "/users/#{params[:user_id]}",notice:"#{User.find(wish.from_id).nickname}さんから返ってきた本を書庫にしまいました。"
+          redirect_to user_path(current_user),notice:"#{User.find(wish.from_id).nickname}さんから返ってきた本を書庫にしまいました。"
         end
       end
     end
