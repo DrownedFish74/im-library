@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+このアプリは、個人間での本の貸し借り支援を目的としています。
+貸し借りを頻繁に行う方であれば、誰しも遭遇したことのある
+「本を貸したはいいけれど、誰が持っているか分からない問題」
+を解決する一助となれれば幸いです。
+なお、電子書籍貸し借りには対応しておりません。ご了承ください。
+紙の本を愛する人々向けのアプリとなります。
 
-Things you may want to cover:
+## 機能
+・ユーザー登録を行うことで、「開架」「書庫」「借りている本」の三つの本棚が作成されます。
+・本を登録し、開架、もしくは書庫に登録することができます。
+（登録時、ISBNコードを入力して頂くと本の詳細を検索することができます）
+・自分の本は開架と書庫を自由に行き来させることができます。
+・開架に置かれている本は、他のユーザーからの貸出申請を受けて、貸し出すことができます。
+・貸出申請では、返却期限を設定することができます。
+・貸出申請を受けたユーザーは、申請者が設定した返却期限に不具合があれば変更することができます。
+・返却申請を行うことで、本を返すことができます。
+・返却申請を受けたユーザーは、返ってきた本を置く本棚を選択することができます。
+・借りた本、もしくは自分の本には、感想を書くことができます。
+・友達申請を行うことができます。よくやりとりをするユーザーと友達になることにより、ユーザー検索の手間を省くことができます。またこれにより、プライベートな連絡を取りたくない人（会社の人など）とも、このアプリを使うことで貸し借り管理を行うことができます。
 
-* Ruby version
+## URL
+https://im-library.herokuapp.com/
 
-* System dependencies
+## DB設計
+工事中
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
