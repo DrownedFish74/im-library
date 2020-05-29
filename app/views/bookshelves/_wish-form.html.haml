@@ -1,5 +1,5 @@
 .bookshelvesWishPopup
-  = form_with(model:@wish,local: true) do |f|
+  = form_with(model:@wish,url:wishes_path,local: true) do |f|
     .bookshelvesWishPopup__add
     .bookshelvesWishPopup__form
       =f.text_area :comment,placeholder: "メッセージを入力してください",rows: "4",class:"bookshelvesWishPopup__form--textarea"
