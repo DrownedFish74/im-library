@@ -106,7 +106,7 @@ $(function() {
     for_id = $(this).attr("data-bookshelf-id")
     $.ajax({
       type: "GET",
-      url: "/users/" + $(".book__borrow").attr("data-bookshelf-id")+ "/books",
+      url: "/books",
       data: { bookids: moveBooksId },
       dataType: "json"
     })
@@ -146,7 +146,7 @@ $(function() {
       for_id = $(moveBooks).attr("data-owner-id")
       $.ajax({
         type: "GET",
-        url: "/users/" + $(".book__return").attr("data-user-id")+ "/books",
+        url: "/books",
         data: { bookids: moveBooksId },
         dataType: "json"
       })
