@@ -6,7 +6,7 @@
     書籍に記載されている13桁のISBNコードを入力すると
     %br
     詳細を検索できます。
-  = form_with model:[@user,@book],local: true,html:{class:"booksNew__form"} do |f|
+  = form_with model:@book,local: true,html:{class:"booksNew__form"} do |f|
     ISBN13：
     =f.text_field :ISBN, class:"booksNew__form--ISBN",placeholder:"ISBN13"
     %button{class:"getBookInfo formbtn"}書籍情報取得
