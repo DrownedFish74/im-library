@@ -77,7 +77,7 @@ $(function() {
     status = $(this).attr("data-book-status")
     $.ajax({
       type: "GET",
-      url: "/users/" + $(".book__move").attr("data-user-id")+ "/books",
+      url: "/books",
       data: { bookids: moveBooksId },
       dataType: "json"
     })

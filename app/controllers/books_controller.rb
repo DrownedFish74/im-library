@@ -3,7 +3,7 @@ require "date"
 before_action :set_user
   def index
     return nil if params[:bookids] == ""
-    @books = Book.where(id:current_user.id)
+    @books = Book.where(user_id:current_user.id,id:params[:bookids])
     respond_to do |format|
       format.html
       format.json
@@ -22,7 +22,7 @@ before_action :set_user
   
   def create #本の登録
     @book = Book.create(book_params)
-    redirect_to :new_user_book
+    redirect_to :new_book
   end
   
   
