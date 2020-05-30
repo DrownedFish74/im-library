@@ -8,14 +8,14 @@ class WishesController < ApplicationController
     when "friend"
       redirect_to friends_path
     when "borrow"
-      redirect_to "/users/#{@wish.for_id}/bookshelves"
+      redirect_to user_bookshelves_path(@wish.for_id)
     when "return"
       redirect_to user_bookshelves_path(current_user)
     end
   end
   
   def edit
-    @user = User.find(params[:user_id])
+    @user = User.find(current_user.id)
     @wish = Wish.find(params[:id])
     @books = @wish.books
     
@@ -53,7 +53,7 @@ class WishesController < ApplicationController
   
   private
   def wish_create_params
-    params.require(:wish).permit(:purpose,:deadline,:for_id,:status,:comment,book_ids: []).merge(from_id:params[:user_id])
+    params.require(:wish).permit(:purpose,:deadline,:for_id,:status,:comment,book_ids: []).merge(from_id:current_user.id)
   end
   
   def wish_update_params
