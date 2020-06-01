@@ -7,23 +7,21 @@
       = "#{@wish.from_name}さんと友達になりますか？"
     = form_with(model:@wish,local:true) do |f|
       =f.hidden_field :status,value:"ok"
-      =f.submit(class:"wishesEdit__formBtn--btn formbtn",value:"はい")
+      =f.submit "はい",class:"wishesEdit__formBtn--btn formbtn"
     = form_with(model:@wish,local:true) do |f|
       =f.hidden_field :status,value:"ng"
-      = f.submit(class:"wishesEdit__formBtn--btn formbtn",value:"いいえ")
+      = f.submit "いいえ",class:"wishesEdit__formBtn--btn formbtn"
 
   - when "borrow"
     %h3 貸出申請
     = render partial: "wish-books", collection: @books,as: "book"
     = @wish.comment
     = form_with(model:@wish,local:true) do |f|
-      =f.date :deadline,value:@wish.deadline
+      = f.date_field :deadline,value:@wish.deadline
       %p.wishesEdit__comment
         この内容で貸出を許可しますか？
-      = f.submit(class:"wishesEdit__formBtn--btn formbtn",name:"wish[status]",value:"ok")
-        貸し出す
-      = f.submit(class:"wishesEdit__formBtn--btn formbtn",name:"wish[status]",value:"ng")
-        やめる
+      = f.submit "貸し出す",class:"wishesEdit__formBtn--btn formbtn",name:"OK"
+      = f.submit "やめる",class:"wishesEdit__formBtn--btn formbtn",name:"NG"
 
   - when "return"
     %h3 返ってきた本

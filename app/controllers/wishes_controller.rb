@@ -57,7 +57,11 @@ class WishesController < ApplicationController
   end
   
   def wish_update_params
-    params.require(:wish).permit(:purpose,:deadline,:status,book_ids:[])
+    if params[:OK] != nil
+      params.require(:wish).permit(:purpose,:deadline,book_ids:[]).merge(status:"ok")
+    else
+      params.require(:wish).permit(:purpose,:deadline,book_ids:[]).merge(status:"ng")
+    end
   end
   
   def book_status

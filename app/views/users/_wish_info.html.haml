@@ -2,7 +2,6 @@
   = form_with (model:@wish,local:true) do |f|
     .wishesPopup__addFrom
     .wishesPopup__formBtn
-      = f.submit{class:"wishesPopup__formBtn--ok"}
-        はい
+      = f.submit "はい",class:"wishesPopup__formBtn--ok"
       %button.wishesPopup__formBtn--ng
         いいえ
