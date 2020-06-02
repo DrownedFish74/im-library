@@ -29,7 +29,4 @@ test:
   database: im-library_test
 
 production:
-  <<: *default
-  database: heroku_19e6dd528dc3a31
-  username: b2f0a73974b38d
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
