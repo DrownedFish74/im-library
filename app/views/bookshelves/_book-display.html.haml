@@ -14,7 +14,7 @@
           = link_to book_path(book) do
             =book.title
 - when "lending"
-  - if book.borrower_id == current_user.id && params[:user_id] == current_user.id
+  - if book.borrower_id == current_user.id && @user.id == current_user.id
     .book.borrowing
       .book__spine.borrowing
         .book__spine__title

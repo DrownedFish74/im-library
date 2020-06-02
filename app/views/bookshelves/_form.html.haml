@@ -2,5 +2,5 @@
   = form_with(url: bookmove_index_path,local: true) do |f|
     .bookshelvesPopup__moveBook
     .bookshelvesPopup__form
-      = f.submit value:"移動する"
-  %button{class:"bookshelvesPopup__close"}やめる
+      = f.submit "移動する",class:"formbtn",name:"OK"
+      = f.submit "やめる",class:"formbtn",name:"NG"
