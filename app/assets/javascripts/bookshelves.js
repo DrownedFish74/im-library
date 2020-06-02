@@ -42,7 +42,7 @@ $(function() {
     `;
     $(".bookshelvesWishPopup__add").append(html);
   }
-
+  
   // 返却申請のときのインフォ
   function addReturnInfo(for_id) {
     let html = `
@@ -134,7 +134,7 @@ $(function() {
       })
     }
     
-// 返却申請
+    // 返却申請
     $(".book__return").on("click",function(){
       let moveBooksId = []
       let moveBooks = $(".return-check")

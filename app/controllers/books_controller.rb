@@ -3,7 +3,7 @@ require "date"
 before_action :set_user
   def index
     return nil if params[:bookids] == ""
-    @books = Book.where(user_id:current_user.id,id:params[:bookids])
+    @books = Book.where(id:params[:bookids])
     respond_to do |format|
       format.html
       format.json
@@ -11,7 +11,7 @@ before_action :set_user
   end
   
   def show #本の詳細
-    @book = Book.find(current_user.id)
+    @book = Book.find(params[:id])
     @impressions = @book.impressions.includes(:user)
     @impression = Impression.new
   end
