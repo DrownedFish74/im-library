@@ -17,7 +17,7 @@
     = render partial: "wish-books", collection: @books,as: "book"
     = @wish.comment
     = form_with(model:@wish,local:true) do |f|
-      = f.date_field :deadline,value:@wish.deadline
+      = f.date_field :deadline,selected:@wish.deadline
       %p.wishesEdit__comment
         この内容で貸出を許可しますか？
       = f.submit "貸し出す",class:"wishesEdit__formBtn--btn formbtn",name:"OK"
