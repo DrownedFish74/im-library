@@ -11,10 +11,21 @@
         width: 340px;
         background-color: #BB9457;
         text-align: center;
-        
-      }
-      .active{
-        background-color: #F6AA1C;
+        &.open{
+          &.active{
+            background-color: #F6AA1C;
+          }
+        }
+        &.close{
+          &.active{
+            background-color:#b0c4de;
+          }
+        }
+        &.borrow{
+          &.active{
+            background-color:#ffb6c1;
+          }
+        }
       }
     }
     .bookshelves{
@@ -31,99 +42,99 @@
         }
         &__layer{
           border-radius: 5px;
-          border: 10px solid;
-          border-color: inherit;
           width: 100%;
-          height: 200px;
-          display: flex;
+          display: table;
+          padding: 5px 10px;
           &.open{
             background-color: #FBD1A2;
-            border-color: bisque;
           }
           &.close{
             background-color: #92B4A7;
-            border-color:#BBC5AA;
           }
           &.borrowing{
             background-color: #FFCDBC;
-            border-color:#FFEBE7;
           }
         }
-        .book{
-          border-radius: 5px;
-          height: 180px;
-          width: 50px;
-          display: flexbox;
-          padding: 5px;
-          &.open{
-            background-color: #621708;
-          }
-          &.close{
-            background-color: cornflowerblue;
-          }
-          &.borrowing{
-            background-color: darkmagenta;
-          }
-          &.lending{
-            background-color: lightseagreen;
-          }
-          
-          &__spine{
-            border-radius: 5px;
-            width: 40px;
-            height: 150px;
-            text-align: center;
-            &.open{
-              background-color: #F5D0C5;
-            }
-            &.close{
-              background-color: lightblue;
-            }
-            &.borrowing{
-              background-color: lightpink;
-            }
-            &.lending{
-              background-color: yellowgreen;
-            }
-            &__status{
-              font-size: 10px;
-            }
-            &__title{
-              width: 100%;
-              height: 100%;
-              writing-mode: vertical-rl;
-              font-size: 13px;
-              line-height: 20px;
-              word-break: break-all;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              display: inline-block;
-              text-align: left;
-              a{
-                text-decoration: none;
-                color: #353A47;
-              }
-            }
+      }
+      .bookshelves__shelf__layer > .book:nth-child(20n+1){
+        clear:both;
+      }
+      .bookshelves__shelf__layer > .book{
+        border-radius: 5px;
+        height: 180px;
+        width: 50px;
+        display: table-cell;
+        float: left;
+        padding: 5px;
+        margin: 5px 0 5px 0;
+        &.open{
+          background-color: #621708;
+        }
+        &.close{
+          background-color: cornflowerblue;
+        }
+        &.borrowing{
+          background-color: darkmagenta;
+        }
+        &.lending{
+          background-color: lightseagreen;
+        }
+      }
+      .book__spine{
+        border-radius: 5px;
+        width: 40px;
+        height: 150px;
+        text-align: center;
+        &.open{
+          background-color: #F5D0C5;
+        }
+        &.close{
+          background-color: lightblue;
+        }
+        &.borrowing{
+          background-color: lightpink;
+        }
+        &.lending{
+          background-color: yellowgreen;
+        }
+        &__status{
+          font-size: 10px;
+        }
+        &__title{
+          width: 100%;
+          height: 100%;
+          writing-mode: vertical-rl;
+          font-size: 13px;
+          line-height: 20px;
+          word-break: break-all;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: inline-block;
+          text-align: left;
+          a{
+            text-decoration: none;
+            color: #353A47;
           }
         }
       }
     }
   }
-  .bookshelvesPopup{
-    @include popup;
-    &.show{
-      display: block;
-    }
+}
+
+.bookshelvesPopup{
+  @include popup;
+  &.show{
+    display: block;
   }
-  .bookshelvesWishPopup{
-    @include popup;
-    display: flexbox;
-    &__form--textarea{
-      display: inline-block;
-      width: 90%;
-    }
-    &.show{
-      display: block;
-    }
+}
+.bookshelvesWishPopup{
+  @include popup;
+  display: flexbox;
+  &__form--textarea{
+    display: inline-block;
+    width: 90%;
+  }
+  &.show{
+    display: block;
   }
 }
