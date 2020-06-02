@@ -34,7 +34,7 @@
             ：
             = impression.comment
     - if current_user
-      =form_with(model: [@user,@book,@impression],id: "impression_new",local:true) do |f|
+      =form_with(model: [@book,@impression],id: "impression_new",local:true) do |f|
         =f.text_area :comment,placeholder: "感想を入力",rows: "2",class:"impression-textarea"
         =f.submit class:"impression-submit",value:"感想を書く"
 

@@ -42,7 +42,7 @@ $(function() {
     `;
     $(".bookshelvesWishPopup__add").append(html);
   }
-
+  
   // 返却申請のときのインフォ
   function addReturnInfo(for_id) {
     let html = `
@@ -77,7 +77,7 @@ $(function() {
     status = $(this).attr("data-book-status")
     $.ajax({
       type: "GET",
-      url: "/users/" + $(".book__move").attr("data-user-id")+ "/books",
+      url: "/books",
       data: { bookids: moveBooksId },
       dataType: "json"
     })
@@ -106,7 +106,7 @@ $(function() {
     for_id = $(this).attr("data-bookshelf-id")
     $.ajax({
       type: "GET",
-      url: "/users/" + $(".book__borrow").attr("data-bookshelf-id")+ "/books",
+      url: "/books",
       data: { bookids: moveBooksId },
       dataType: "json"
     })
@@ -134,7 +134,7 @@ $(function() {
       })
     }
     
-// 返却申請
+    // 返却申請
     $(".book__return").on("click",function(){
       let moveBooksId = []
       let moveBooks = $(".return-check")
@@ -146,7 +146,7 @@ $(function() {
       for_id = $(moveBooks).attr("data-owner-id")
       $.ajax({
         type: "GET",
-        url: "/users/" + $(".book__return").attr("data-user-id")+ "/books",
+        url: "/books",
         data: { bookids: moveBooksId },
         dataType: "json"
       })

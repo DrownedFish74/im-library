@@ -3,20 +3,20 @@
     %h1 わたしとしょかん
 .wrapper
   .entrance__menu
-    .entrance__menu__new
+    .entrance__new
       = link_to new_user_path do
         %h3 新規登録はこちら
-    .entrance__menu__login
-      .entrance__menu__login__form
+    .entrance__login
+      .entrance__form
         %h3 ろぐいん
         = form_with(local: true,url:"user_sessions",method: :post) do |form|
-          .entrance__menu__login__form--field
+          .entrance__form--field
             = form.label :めーる
             = form.text_field :email
-          .entrance__menu__login__form--field
+          .entrance__form--field
             = form.label :ぱすわーど
             = form.password_field :password
-          .entrance__menu__login__form--submit
+          .entrance__form--submit
             = form.submit :ログイン,class:"formbtn"
 
 

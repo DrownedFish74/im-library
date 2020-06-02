@@ -5,7 +5,7 @@
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.from_id).nickname}さんから友達申請が届いています"
       .wishInfo__friend
-        = link_to "確認","/users/#{current_user.id}/wishes/#{wish.id}/edit"
+        = link_to "確認",edit_wish_path(wish.id)
     - else
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.for_id).nickname}さんに友達申請を出しました"
@@ -16,7 +16,7 @@
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.from_id).nickname}さんから貸出申請が届いています"
       .wishInfo__borrow
-        = link_to "確認","/users/#{current_user.id}/wishes/#{wish.id}/edit"
+        = link_to "確認",edit_wish_path(wish.id)
     - else
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.for_id).nickname}さんに貸出申請を出しました"
@@ -27,7 +27,7 @@
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.from_id).nickname}さんから本が返ってきました"
       .wishInfo__return
-        = link_to "確認","/users/#{current_user.id}/wishes/#{wish.id}/edit"
+        = link_to "確認",edit_wish_path(wish.id)
     - else
       %span.usersShow__wishes__wish--title
         = "#{User.find(wish.for_id).nickname}さんに本を返しました"

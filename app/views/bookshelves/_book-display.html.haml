@@ -1,32 +1,39 @@
 - case book.status
 - when "open"
-  .book.open
-    .book__spine.open
-      .book__spine__title
-        = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
-          =book.title
-      %input.move-check{type:"checkbox",value:"#{book.id}"}
-- when "lending"
-  - if book.user_id == current_user.id
-    .book.lending
-      .book__spine.lending
+  - if book.wishes.find_by(from_id:current_user.id,status:"wait") == nil
+    .book.open
+      .book__spine.open
         .book__spine__title
-          = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
+          = link_to book_path(book) do
             =book.title
-        .book__spine__status
-          貸出中
+        %input.move-check{type:"checkbox",value:"#{book.id}"}
   - else
+    .book.open
+      .book__spine.open
+        .book__spine__title
+          = link_to book_path(book) do
+            =book.title
+- when "lending"
+  - if book.borrower_id == current_user.id && params[:user_id] == current_user.id
     .book.borrowing
       .book__spine.borrowing
         .book__spine__title
-          = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
+          = link_to book_path(book) do
             =book.title
         %input.return-check{type:"checkbox",name:"return-checkbox",value:"#{book.id}","data-owner-id":"#{book.user_id}"}
+  - else
+    .book.lending
+      .book__spine.lending
+        .book__spine__title
+          = link_to book_path(book) do
+            =book.title
+        .book__spine__status
+          貸出中
 - when "close"
   .book.close
     .book__spine.close
       .book__spine__title
-        = link_to "/users/#{params[:user_id]}/books/#{book.id}" do
+        = link_to book_path(book) do
           =book.title
       %input.move-check{type:"checkbox",value:"#{book.id}"}
 
