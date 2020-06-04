@@ -1,0 +1,16 @@
+- if current_user
+  .common_header
+    .userNav__name
+      %h3
+        = @user.nickname
+    %ul.userNav__menu
+      %li
+        = link_to "マイページに戻る",user_path(current_user)
+      %li
+        = link_to "本の登録",new_book_path
+      %li
+        = link_to "本棚をみる",user_bookshelves_path(current_user)
+      %li
+        = link_to "誰かの本棚を探す",friends_path
+      %li
+        = link_to "ログアウト",user_session_path(current_user),method: :delete

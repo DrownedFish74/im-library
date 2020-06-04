@@ -1,6 +1,10 @@
 = render "layouts/header"
 .usersShow.wrapper
-  %h3 承認待ちの申請
-  %br/
-
-  = render partial:"wish",collection:@wishes
+  .leftContent
+    %h3 承認待ちの申請
+    %br/
+    = render partial:"wish",collection:@wishes
+  .rightContent
+    %h3 友達一覧
+    %br/
+    = render partial:"friend",collection:@friends

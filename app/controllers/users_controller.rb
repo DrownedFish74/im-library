@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @wishes = Wish.where("(for_id=?) or (from_id=?)",@user.id,@user.id).where(status:"wait")
+    @friends = Friend.where(user_id:@user.id)
   end
 
   def new
