@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
       redirect_to "/users/#{current_user.id}"
     else
       flash.now[:alert] = 'Login failed'
-      render :new
+      redirect_to root_path
     end
   end
   

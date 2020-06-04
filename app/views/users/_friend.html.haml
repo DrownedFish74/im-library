@@ -1,0 +1,3 @@
+.usersShow__friends
+  = link_to user_bookshelves_path(friend.friend_id) do
+    = "#{User.find(friend.friend_id).nickname}さん"
