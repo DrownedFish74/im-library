@@ -7,6 +7,6 @@ class ImpressionsController < ApplicationController
   end
   private
   def impression_params
-    params.require(:impression).permit(:comment).merge(user_id: params[:user_id], book_id: params[:book_id])
+    params.require(:impression).permit(:comment).merge(user_id: current_user.id, book_id: params[:book_id])
   end
 end

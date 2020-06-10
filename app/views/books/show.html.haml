@@ -31,10 +31,9 @@
         - @impressions.each do |impression|
           .impression
             = link_to "#{impression.user.nickname}","/users/#{impression.user_id}/bookshelves"
-            ：
-            = impression.comment
+            = "：#{impression.comment}"
     - if current_user
       =form_with(model: [@book,@impression],id: "impression_new",local:true) do |f|
         =f.text_area :comment,placeholder: "感想を入力",rows: "2",class:"impression-textarea"
-        =f.submit class:"impression-submit",value:"感想を書く"
+        =f.submit "感想を書く",class:"impression-submit"
 
