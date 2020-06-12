@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @wishes = Wish.where("(for_id=?) or (from_id=?)",@user.id,@user.id).where(status:"wait")
+    @borrowBooks = Book.where(borrower_id:current_user.id).order("return_deadline ASC")
     @friends = Friend.where(user_id:@user.id)
   end
 

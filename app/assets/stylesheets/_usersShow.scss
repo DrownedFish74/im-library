@@ -1,31 +1,33 @@
 .usersShow{
-  display: flex;
-  justify-content: center;
+  padding: 0 50px;
   h3{
     line-height: 70px;
   }
-}
-.leftContent{
-  width: 500px;
-}
-.rightContent{
-  width: 500px;
-}
-
-.usersShow__friends{
-  a{
-    display: inline-block;
-    width: 400px;
-    height: 50px;
-    font-size: 15px;
-    border-radius: 3px;
-    border: 2px solid;
-    border-color: $header-color;
-    background-color: $base-font;
-    text-decoration: none;
-    display: inline-block;
-    color: $header-color;
-    line-height: 50px;
-    font-size: 20px;
+  &__friends{
+    a{
+      display: inline-block;
+      width: 400px;
+      height: 50px;
+      font-size: 15px;
+      border-radius: 3px;
+      border: 2px solid;
+      border-color: $header-color;
+      background-color: $base-font;
+      text-decoration: none;
+      display: inline-block;
+      color: $header-color;
+      line-height: 50px;
+      font-size: 20px;
+    }
+  }
+  .contents{
+    display: flex;
+    &__left{
+      width: 500px;
+    }
+    &__right{
+      width: 500px;
+    }
+    
   }
 }

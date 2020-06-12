@@ -1,12 +1,13 @@
 = render "layouts/header"
-=link_to wishes_path do
-  %h3 承認待ちの申請
 .usersShow.wrapper
-  .leftContent
-    %h3 友達一覧
-    %br/
-    = render partial:"friend",collection:@friends
-  .rightContent
-    %h3 返却期限一覧
-    = render partial:"borrowing",collection:@borrowBooks,as:"book"
+  =link_to wishes_path do
+    %h3 承認待ちの申請
+  .contents
+    .contents__left
+      %h3 友達一覧
+      %br/
+      = render partial:"friend",collection:@friends
+    .contents__right
+      %h3 返却期限一覧
+      = render partial:"borrowing",collection:@borrowBooks,as:"book"
 
