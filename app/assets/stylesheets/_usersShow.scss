@@ -1,0 +1,31 @@
+.usersShow{
+  display: flex;
+  justify-content: center;
+  h3{
+    line-height: 70px;
+  }
+}
+.leftContent{
+  width: 500px;
+}
+.rightContent{
+  width: 500px;
+}
+
+.usersShow__friends{
+  a{
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 2px solid;
+    border-color: $header-color;
+    background-color: $base-font;
+    text-decoration: none;
+    display: inline-block;
+    color: $header-color;
+    line-height: 50px;
+    font-size: 20px;
+  }
+}

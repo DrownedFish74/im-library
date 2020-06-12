@@ -1,4 +1,9 @@
 class WishesController < ApplicationController
+  def index
+    @borrowWish = Wish.where(purpose:"borrow").where("(for_id=?) or (from_id=?)","#{current_user.id}","#{current_user.id}").order("created_at DESC")
+    @returnWish = Wish.where(purpose:"return").where("(for_id=?) or (from_id=?)","#{current_user.id}","#{current_user.id}").order("created_at DESC")
+    @friendWish = Wish.where(purpose:"friend").where("(for_id=?) or (from_id=?)","#{current_user.id}","#{current_user.id}").order("created_at DESC")
+  end
   def new
   end
   

@@ -4,3 +4,32 @@
     display:block;
   }
 }
+.wishes{
+  width: 350px;
+  height: 75px;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #F9DEC9;
+  position: relative;
+  margin-top: 10px;
+  a{
+    text-decoration: none;
+    position: absolute;
+    right: 3px;
+    display: inline-block;
+    border: 2px solid;
+    border-color: beige;
+    color: beige;
+    font-size: 18px;
+    height: 22px;
+    line-height: 20px;
+    width: 100px;
+    text-align: center;
+    padding: 0 auto;
+  }
+  &__info{
+    padding-right: 3px;
+    text-align: right;
+  }
+}

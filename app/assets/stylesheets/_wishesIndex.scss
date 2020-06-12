@@ -1,0 +1,18 @@
+.wishesIndex{
+  h3{
+    line-height: 70px;
+  }
+  .contents{
+    display: flex;
+    justify-content: center;
+    &__left{
+      margin: 10px;
+    }
+    &__center{
+      margin: 10px;
+    }
+    &__right{
+      margin: 10px;
+    }
+  }
+}

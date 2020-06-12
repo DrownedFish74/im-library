@@ -1,0 +1,13 @@
+= render "layouts/header"
+.wishesIndex.wrapper
+  %h3 承認待ちの申請
+  .contents
+    .contents__left
+      %h3 貸出申請
+      = render partial:"wish",collection:@borrowWish,as:"wish"
+    .contents__center
+      %h3 返却申請
+      = render partial:"wish",collection:@returnWish,as:"wish"
+    .contents__right
+      %h3 友達申請
+      = render partial:"wish",collection:@friendWish,as:"wish"

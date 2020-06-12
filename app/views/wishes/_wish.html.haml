@@ -1,0 +1,47 @@
+.wishes
+  -case wish.purpose
+  -when "friend"
+    -if wish.for_id == current_user.id
+      %span.wishes__title
+        = wish.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        %br/
+        = "#{User.find(wish.from_id).nickname}さん"
+      .wishes__info
+        = link_to "確認",edit_wish_path(wish.id)
+    - else
+      %span.wishes__title
+        = wish.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        %br/
+        = "#{User.find(wish.for_id).nickname}さん"
+      .wishes__info
+        承認待ち
+  -when "borrow"
+    -if wish.for_id == current_user.id
+      %span.wishes__title
+        = wish.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        %br/
+        = "#{User.find(wish.from_id).nickname}さん"
+      .wishes__info
+        = link_to "確認",edit_wish_path(wish.id)
+    - else
+      %span.wishes__title
+        = wish.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        %br/
+        = "#{User.find(wish.for_id).nickname}さん"
+      .wishes__info
+        承認待ち
+  -when "return"
+    - if wish.for_id == current_user.id
+      %span.wishes__title
+        = wish.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        %br/
+        = "#{User.find(wish.from_id).nickname}さん"
+      .wishes__info
+        = link_to "確認",edit_wish_path(wish.id)
+    - else
+      %span.wishes__title
+        = wish.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        %br/
+        = "#{User.find(wish.for_id).nickname}さん"
+      .wishes__info
+        承認待ち
