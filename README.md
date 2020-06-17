@@ -10,7 +10,7 @@
 
 ## 機能
 ・ユーザー登録<br>
-https://user-images.githubusercontent.com/62987912/84841364-0c2e8f80-b07d-11ea-9602-375d6b40c5a4.png
+![スクリーンショット 2020-06-10 15 11 23](https://user-images.githubusercontent.com/62987912/84841364-0c2e8f80-b07d-11ea-9602-375d6b40c5a4.png)
 ・所持している本の登録<br>
 https://user-images.githubusercontent.com/62987912/84841367-10f34380-b07d-11ea-992a-c123fb758be2.png
     登録時、ISBNコードを入力して頂くと本の詳細を検索することが可能<br>
