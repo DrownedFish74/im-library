@@ -25,8 +25,8 @@
     返却申請を受けたユーザーは、返ってきた本を置く本棚を選択することができます。<br>
 ・感想機能<br>
 ![スクリーンショット 2020-06-10 15 17 45](https://user-images.githubusercontent.com/62987912/84841417-36804d00-b07d-11ea-8b99-c08f706b2e1f.png)
-・友達申請機能
-
+・本棚検索機能
+![スクリーンショット 2020-06-10 15 16 17](https://user-images.githubusercontent.com/62987912/84841400-2c5e4e80-b07d-11ea-99f9-d1cf0e551737.png)
 ## URL
 https://im-library.herokuapp.com/
 
